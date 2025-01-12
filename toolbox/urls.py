@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import CategoryViewSet, ToolViewSet, ServerViewSet, ServerLogViewSet
+from .views import CategoryViewSet, ToolViewSet, ServerViewSet, ServerLogViewSet, system_metrics, check_uptime, docker_logs
 
 router = DefaultRouter()
 router.register(r'categories', CategoryViewSet, basename='category')
