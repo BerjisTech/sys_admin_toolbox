@@ -52,6 +52,11 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    # Other DRF settings you might have...
+}
+
 ROOT_URLCONF = "sys_admin_toolbox.urls"
 
 TEMPLATES = [
@@ -118,6 +123,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Force Django to use /sys-admin prefix in all URLs
+FORCE_SCRIPT_NAME = '/sys-admin'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
