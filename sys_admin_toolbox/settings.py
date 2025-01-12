@@ -79,10 +79,10 @@ WSGI_APPLICATION = "sys_admin_toolbox.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DJANGO_POSTGRES_DB', 'django_db'),
-        'USER': os.getenv('POSTGRES_USER', 'django_user'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'django_password'),
-        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
+        'NAME': os.getenv('DJANGO_POSTGRES_DB', 'sys_admin_toolbox_db'),
+        'USER': os.getenv('POSTGRES_USER', 'caller_sim2'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'caller_sim2_password'),
+        'HOST': os.getenv('POSTGRES_HOST', 'caller-db'),  # This should be your Docker service name
         'PORT': '5432',
     }
 }
