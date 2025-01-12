@@ -74,3 +74,38 @@ def docker_logs(request, container_name):
         return Response({"error": "Container not found"}, status=404)
     except Exception as e:
         return Response({"error": str(e)}, status=500)
+
+@api_view(['GET'])
+def server_logs(request, server_id):
+    try:
+        server = Server.objects.get(id=server_id)
+    except Server.DoesNotExist:
+        return Response({"error": "Server not found"}, status=404)
+
+    logs = ServerLog.objects.filter(server=server)
+    log_data = []
+    for log in logs:
+        log_data.append({
+            "server": log.server.name,
+            "message": log.message,
+            "timestamp": log.timestamp
+        })
+    return Response(log_data)
+
+@api_view(['GEt'])
+def home_view(request):
+    return Response({
+        "message": "Welcome to Sys Admin Toolbox API",
+        "endpoints": {
+            "api/": "API root",
+            "api/system-metrics/": "System metrics endpoint",
+            "api/check-uptime/<server_id>/": "Server uptime check",
+            "api/docker-logs/<container_name>/": "Docker container logs",
+            "api/server-logs/<server_id>/": "Server logs",
+            "api/servers/": "List of servers",
+            "api/categories/": "List of categories",
+            "api/tools/": "List of tools",
+            "api/logs/": "List of server logs"
+
+        }
+    })

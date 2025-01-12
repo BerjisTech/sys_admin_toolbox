@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import CategoryViewSet, ToolViewSet, ServerViewSet, ServerLogViewSet, system_metrics, check_uptime, docker_logs
+from .views import CategoryViewSet, ToolViewSet, ServerViewSet, ServerLogViewSet, system_metrics, check_uptime, docker_logs, home_view, server_logs
 
 router = DefaultRouter()
 router.register(r'categories', CategoryViewSet, basename='category')
@@ -13,4 +13,6 @@ urlpatterns = [
     path('system-metrics/', system_metrics, name='system-metrics'),
     path('check-uptime/<int:server_id>/', check_uptime, name='check-uptime'),
     path('docker-logs/<str:container_name>/', docker_logs, name='docker-logs'),
+    path('server-logs/<str:container_name>/', server_logs, name='server-logs'),
+    path('home/', home_view, name='home'),
 ]
