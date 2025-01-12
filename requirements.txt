@@ -1,24 +1,21 @@
-# Django framework
-Django==4.2.3
+# requirements.txt
 
-# Django REST Framework for building APIs
+Django==4.2.3
 djangorestframework==3.14.0
 
-# PostgreSQL driver
+# For PostgreSQL
 psycopg2==2.9.7
 
-# Utility for local CPU & memory usage
-psutil==5.9.5
-
-# Docker client library (if you need Docker interactions/logs)
+# For Docker integration/log fetch
 docker==6.1.3
 
-# Gunicorn for production WSGI server (optional, but recommended for deployment)
+# For local CPU/memory usage
+psutil==5.9.5
+
+# Optional production WSGI server
 gunicorn==20.1.0
 
-# python-dotenv to manage environment variables if needed
-python-dotenv==1.0.0
-
-# Additional libraries (HTTP requests, ping utilities, etc.)
+# Additional libs
 requests==2.31.0
 pythonping==1.1.4
+python-dotenv==1.0.0
