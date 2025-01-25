@@ -1,3 +1,4 @@
-/sys_admin_toolbox/__pycache__
-/toolbox/__pycache__
-/toolbox/migrations
+__pycache__/
+toolbox/migrations/
+sys_admin_toolbox/__pycache__/
+toolbox/__pycache__/
